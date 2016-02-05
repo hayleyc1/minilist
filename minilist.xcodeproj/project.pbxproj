@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92CD16301C64F9FF0060C73C /* MiniList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD162F1C64F9FF0060C73C /* MiniList.swift */; };
 		92E5B6C91C4ACD75003F0455 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5B6C81C4ACD75003F0455 /* AppDelegate.swift */; };
 		92E5B6CB1C4ACD75003F0455 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5B6CA1C4ACD75003F0455 /* MasterViewController.swift */; };
 		92E5B6CD1C4ACD75003F0455 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5B6CC1C4ACD75003F0455 /* DetailViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92CD162F1C64F9FF0060C73C /* MiniList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniList.swift; sourceTree = "<group>"; };
 		92E5B6C51C4ACD75003F0455 /* minilist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minilist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5B6C81C4ACD75003F0455 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92E5B6CA1C4ACD75003F0455 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				92E5B6D11C4ACD75003F0455 /* Assets.xcassets */,
 				92E5B6D31C4ACD75003F0455 /* LaunchScreen.storyboard */,
 				92E5B6D61C4ACD75003F0455 /* Info.plist */,
+				92CD162F1C64F9FF0060C73C /* MiniList.swift */,
 			);
 			path = minilist;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				92E5B6CD1C4ACD75003F0455 /* DetailViewController.swift in Sources */,
 				92E5B6CB1C4ACD75003F0455 /* MasterViewController.swift in Sources */,
+				92CD16301C64F9FF0060C73C /* MiniList.swift in Sources */,
 				92E5B6C91C4ACD75003F0455 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +490,7 @@
 				92E5B6F11C4ACD75003F0455 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92E5B6F21C4ACD75003F0455 /* Build configuration list for PBXNativeTarget "minilistTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +499,7 @@
 				92E5B6F41C4ACD75003F0455 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92E5B6F51C4ACD75003F0455 /* Build configuration list for PBXNativeTarget "minilistUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +508,7 @@
 				92E5B6F71C4ACD75003F0455 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
