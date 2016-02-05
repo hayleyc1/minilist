@@ -10,7 +10,12 @@ import Foundation
 class MiniList {
     var Ourname:String = "newitem"
 
-
+    init(initialname:String){
+        Ourname = initialname 
+    
+    
+    
+    }
 
 
 }

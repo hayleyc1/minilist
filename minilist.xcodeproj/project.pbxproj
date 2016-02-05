@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		92CD16301C64F9FF0060C73C /* MiniList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD162F1C64F9FF0060C73C /* MiniList.swift */; };
+		92CD16381C653B780060C73C /* AddListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD16371C653B780060C73C /* AddListTableViewController.swift */; };
 		92E5B6C91C4ACD75003F0455 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5B6C81C4ACD75003F0455 /* AppDelegate.swift */; };
 		92E5B6CB1C4ACD75003F0455 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5B6CA1C4ACD75003F0455 /* MasterViewController.swift */; };
 		92E5B6CD1C4ACD75003F0455 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5B6CC1C4ACD75003F0455 /* DetailViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		92CD162F1C64F9FF0060C73C /* MiniList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniList.swift; sourceTree = "<group>"; };
+		92CD16371C653B780060C73C /* AddListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListTableViewController.swift; sourceTree = "<group>"; };
 		92E5B6C51C4ACD75003F0455 /* minilist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minilist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5B6C81C4ACD75003F0455 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92E5B6CA1C4ACD75003F0455 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				92E5B6D31C4ACD75003F0455 /* LaunchScreen.storyboard */,
 				92E5B6D61C4ACD75003F0455 /* Info.plist */,
 				92CD162F1C64F9FF0060C73C /* MiniList.swift */,
+				92CD16371C653B780060C73C /* AddListTableViewController.swift */,
 			);
 			path = minilist;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E5B6CD1C4ACD75003F0455 /* DetailViewController.swift in Sources */,
+				92CD16381C653B780060C73C /* AddListTableViewController.swift in Sources */,
 				92E5B6CB1C4ACD75003F0455 /* MasterViewController.swift in Sources */,
 				92CD16301C64F9FF0060C73C /* MiniList.swift in Sources */,
 				92E5B6C91C4ACD75003F0455 /* AppDelegate.swift in Sources */,
