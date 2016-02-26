@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		928170F21C80DF9000FB2D82 /* NewItemViewContriller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928170F11C80DF9000FB2D82 /* NewItemViewContriller.swift */; };
 		92CD16301C64F9FF0060C73C /* MiniList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD162F1C64F9FF0060C73C /* MiniList.swift */; };
 		92CD16381C653B780060C73C /* AddListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD16371C653B780060C73C /* AddListTableViewController.swift */; };
 		92E5B6C91C4ACD75003F0455 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5B6C81C4ACD75003F0455 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		928170F11C80DF9000FB2D82 /* NewItemViewContriller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewItemViewContriller.swift; path = ../NewItemViewContriller.swift; sourceTree = "<group>"; };
 		92CD162F1C64F9FF0060C73C /* MiniList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniList.swift; sourceTree = "<group>"; };
 		92CD16371C653B780060C73C /* AddListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListTableViewController.swift; sourceTree = "<group>"; };
 		92E5B6C51C4ACD75003F0455 /* minilist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minilist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,7 @@
 				92E5B6D61C4ACD75003F0455 /* Info.plist */,
 				92CD162F1C64F9FF0060C73C /* MiniList.swift */,
 				92CD16371C653B780060C73C /* AddListTableViewController.swift */,
+				928170F11C80DF9000FB2D82 /* NewItemViewContriller.swift */,
 			);
 			path = minilist;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			files = (
 				92E5B6CD1C4ACD75003F0455 /* DetailViewController.swift in Sources */,
 				92CD16381C653B780060C73C /* AddListTableViewController.swift in Sources */,
+				928170F21C80DF9000FB2D82 /* NewItemViewContriller.swift in Sources */,
 				92E5B6CB1C4ACD75003F0455 /* MasterViewController.swift in Sources */,
 				92CD16301C64F9FF0060C73C /* MiniList.swift in Sources */,
 				92E5B6C91C4ACD75003F0455 /* AppDelegate.swift in Sources */,
