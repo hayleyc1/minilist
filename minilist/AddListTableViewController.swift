@@ -10,7 +10,7 @@ import UIKit
 
 class AddListTableViewController: UITableViewController {
     
-    var list:MiniList?
+    var listName:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class AddListTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print(segue.identifier)
         if segue.identifier == "SaveList" {
-            list = MiniList(initialname: nameTextField.text!)
+            listName = nameTextField.text!
         }
         
     }
