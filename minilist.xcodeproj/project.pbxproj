@@ -18,6 +18,7 @@
 		92E5B6D51C4ACD75003F0455 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E5B6D31C4ACD75003F0455 /* LaunchScreen.storyboard */; };
 		92E5B6E01C4ACD75003F0455 /* minilistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5B6DF1C4ACD75003F0455 /* minilistTests.swift */; };
 		92E5B6EB1C4ACD75003F0455 /* minilistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5B6EA1C4ACD75003F0455 /* minilistUITests.swift */; };
+		92F654F91C892F5500F28E90 /* minilistmodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92F654F71C892F5500F28E90 /* minilistmodel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		92E5B6E61C4ACD75003F0455 /* minilistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = minilistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5B6EA1C4ACD75003F0455 /* minilistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minilistUITests.swift; sourceTree = "<group>"; };
 		92E5B6EC1C4ACD75003F0455 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92F654F81C892F5500F28E90 /* minilistmodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = minilistmodel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				92E5B6C81C4ACD75003F0455 /* AppDelegate.swift */,
+				92F654F71C892F5500F28E90 /* minilistmodel.xcdatamodeld */,
 				92E5B6CA1C4ACD75003F0455 /* MasterViewController.swift */,
 				92E5B6CC1C4ACD75003F0455 /* DetailViewController.swift */,
 				92E5B6CE1C4ACD75003F0455 /* Main.storyboard */,
@@ -273,6 +276,7 @@
 				928170F21C80DF9000FB2D82 /* NewItemViewContriller.swift in Sources */,
 				92E5B6CB1C4ACD75003F0455 /* MasterViewController.swift in Sources */,
 				92CD16301C64F9FF0060C73C /* MiniList.swift in Sources */,
+				92F654F91C892F5500F28E90 /* minilistmodel.xcdatamodeld in Sources */,
 				92E5B6C91C4ACD75003F0455 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +523,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		92F654F71C892F5500F28E90 /* minilistmodel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92F654F81C892F5500F28E90 /* minilistmodel.xcdatamodel */,
+			);
+			currentVersion = 92F654F81C892F5500F28E90 /* minilistmodel.xcdatamodel */;
+			path = minilistmodel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 92E5B6BD1C4ACD75003F0455 /* Project object */;
 }
