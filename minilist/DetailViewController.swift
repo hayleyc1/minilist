@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UITableViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-    var objects = [AnyObject]()
+    var miniListItems = [NSManagedObject]()
+    //var objects = [AnyObject]()
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
@@ -24,8 +25,9 @@ class DetailViewController: UITableViewController {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+                label.text = detail.name
             }
+            miniListItems = detail.items as! [NSManagedObject]
         }
     }
 
@@ -50,14 +52,63 @@ class DetailViewController: UITableViewController {
             if let list = newItemViewController.list{
                 print("Here5")
                 
-                objects.insert(list, atIndex: 0)
-                let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.newMiniListItem(list.Ourname)
+                self.tableView.reloadData()
                 
             }
             
         }
     }
+    
+    func newMiniListItem(name: String)
+    {
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let entity =  NSEntityDescription.entityForName("MiniListItem",
+            inManagedObjectContext:managedContext)
+        
+        let miniListItem = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext: managedContext)
+        
+        //3
+        miniListItem.setValue(name, forKey: "itemname")
+        
+        //4
+        do {
+            try managedContext.save()
+            //5
+            miniListItems.append(miniListItem)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //1
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let fetchRequest = NSFetchRequest(entityName: "MiniListItems")
+        
+        //3
+        do {
+            let results =
+            try managedContext.executeFetchRequest(fetchRequest)
+            miniListItems = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+
     
     // MARK: - Table View
     
@@ -66,14 +117,14 @@ class DetailViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return miniListItems.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        let object = objects[indexPath.row] as! MiniList
-        cell.textLabel!.text = object.Ourname
+        let miniListItem = miniListItems[indexPath.row]
+        cell.textLabel!.text = miniListItem.valueForKey("itemname") as? String
         return cell
     }
     
@@ -84,7 +135,7 @@ class DetailViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
+            miniListItems.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

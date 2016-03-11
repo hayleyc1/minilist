@@ -28,9 +28,31 @@ class MasterViewController: UITableViewController {
         }
     }
 
+    //override func viewWillAppear(animated: Bool) {
+    //    self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+    //    super.viewWillAppear(animated)
+    //}
+    
     override func viewWillAppear(animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
+        
+        //1
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let fetchRequest = NSFetchRequest(entityName: "MiniList")
+        
+        //3
+        do {
+            let results =
+            try managedContext.executeFetchRequest(fetchRequest)
+            minilists = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
