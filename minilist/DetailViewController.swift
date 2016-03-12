@@ -12,9 +12,9 @@ import CoreData
 class DetailViewController: UITableViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-    var miniListItems = [NSManagedObject]()
+    var miniListItems: NSMutableOrderedSet!
     //var objects = [AnyObject]()
-    var detailItem: AnyObject? {
+    var detailItem: NSManagedObject! {
         didSet {
             // Update the view.
             self.configureView()
@@ -25,9 +25,9 @@ class DetailViewController: UITableViewController {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.name
+                label.text = detail.valueForKey("name") as? String
             }
-            miniListItems = detail.items as! [NSManagedObject]
+            miniListItems = detail.mutableOrderedSetValueForKey("items")
         }
     }
 
@@ -77,17 +77,43 @@ class DetailViewController: UITableViewController {
         //3
         miniListItem.setValue(name, forKey: "itemname")
         
+        let entityItem =  NSEntityDescription.entityForName("MiniListItem", inManagedObjectContext:managedContext)
+        let newItem = NSManagedObject(entity: entityItem!, insertIntoManagedObjectContext: managedContext)
+        newItem.setValue(name, forKeyPath: "itemname")
+        
+        miniListItems.addObject(newItem)
+
+        
         //4
         do {
             try managedContext.save()
             //5
-            miniListItems.append(miniListItem)
+            //miniListItems.append(miniListItem)
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    func deleteAtIndex(index: Int)
+    {
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        miniListItems.removeObjectAtIndex(index)
+        
+        do {
+            try managedContext.save()
+            //5
+            //miniListItems.append(miniListItem)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+    }
+    
+/*    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         //1
@@ -101,14 +127,14 @@ class DetailViewController: UITableViewController {
         
         //3
         do {
-            let results =
-            try managedContext.executeFetchRequest(fetchRequest)
-            miniListItems = results as! [NSManagedObject]
+            //let results =
+            //try managedContext.executeFetchRequest(fetchRequest)
+            //miniListItems = results as! [NSManagedObject]
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
-
+*/
     
     // MARK: - Table View
     
@@ -135,7 +161,8 @@ class DetailViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            miniListItems.removeAtIndex(indexPath.row)
+            deleteAtIndex(indexPath.row)
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

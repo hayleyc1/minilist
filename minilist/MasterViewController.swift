@@ -92,20 +92,34 @@ class MasterViewController: UITableViewController {
         let managedContext = appDelegate.managedObjectContext
         
         //2
-        let entity =  NSEntityDescription.entityForName("MiniList",
-           inManagedObjectContext:managedContext)
-        
-        let minilist = NSManagedObject(entity: entity!,
-            insertIntoManagedObjectContext: managedContext)
+        let entity =  NSEntityDescription.entityForName("MiniList", inManagedObjectContext:managedContext)
+        let minilist = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         //3
         minilist.setValue(name, forKey: "name")
-        
+                
         //4
         do {
             try managedContext.save()
             //5
             minilists.append(minilist)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    func deleteMiniListAt(miniList: NSManagedObject)
+    {
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        managedContext.deleteObject(miniList)
+        
+        //4
+        do {
+            try managedContext.save()
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
@@ -150,7 +164,9 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            deleteMiniListAt(minilists[indexPath.row])
             minilists.removeAtIndex(indexPath.row)
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
